@@ -20,6 +20,10 @@ func (s *Scope) EvalAsync(f func()) {
 	s.Call("$evalAsync", f)
 }
 
+func (s *Scope) Watch(s string, f func(), b bool) {
+	s.Call("$watch", s, f, b)
+}
+
 type JQueryElement struct{ *js.Object }
 
 func (e *JQueryElement) Prop(name string) *js.Object {
